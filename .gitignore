@@ -1,5 +1,8 @@
 venv/
 .venv/
-data/
 __pycache__/
+<<<<<<< HEAD
+=======
+data/
+>>>>>>> 059c2631b2e162ecae03601da1c5b0ee144c599a
 *.pyc
