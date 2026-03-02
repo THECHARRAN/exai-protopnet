@@ -133,7 +133,8 @@ def evaluate_accuracy(model, loader, device):
             images = images.to(device)
             labels = labels.to(device)
 
-            logits, _ = model(images)
+            out = model(images)
+            logits = out[0] if isinstance(out, tuple) else out
 
             preds = logits.argmax(dim=1)
 

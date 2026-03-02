@@ -6,3 +6,20 @@ __pycache__/
 data/
 >>>>>>> 059c2631b2e162ecae03601da1c5b0ee144c599a
 *.pyc
+# environments
+venv/
+.venv/
+
+# dataset
+dataset/
+
+# python cache
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# huggingface cache
+.cache/
