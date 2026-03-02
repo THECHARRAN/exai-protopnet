@@ -23,3 +23,9 @@ Thumbs.db
 
 # huggingface cache
 .cache/
+# large model artifacts
+feature_bank.pt
+meta.pt
+labels_meta.pt
+convnext_base_best.pth
+effnet_b4_best.pth
