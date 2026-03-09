@@ -1,17 +1,15 @@
-import torch
-from dataset import get_loaders
-from models.protopnet import ProtoPNet
+from inference.predictor import MRIEnsemblePredictor
+from explanations.heatmap import generate_heatmap, visualize_heatmap
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+predictor = MRIEnsemblePredictor()
 
-train_loader, _ = get_loaders()
+results,img,x,proto = predictor.predict(
+    "dataset/test/meningioma/Te-aug-me_17.jpg"
+)
 
-model = ProtoPNet().to(device)
+for r in results:
+    print(r)
 
-images, _ = next(iter(train_loader))
-images = images.to(device)
+heat = generate_heatmap(proto,x,"cpu")
 
-logits, similarity = model(images)
-
-print("logits:", logits.shape)
-print("similarity:", similarity.shape)
+visualize_heatmap(img,heat)
